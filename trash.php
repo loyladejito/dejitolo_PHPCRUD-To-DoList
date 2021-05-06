@@ -7,6 +7,7 @@ if (isset($_GET['deleteid'])) {
     $delid = $_GET['deleteid'];
     $obj->deleteRecord($delid);
 }
+
 ?>
 
 <!Doctype html>
@@ -36,7 +37,16 @@ if (isset($_GET['deleteid'])) {
           a:hover, a:active {
             background-color: none;
             color: white;
-          }    
+          }   
+
+          body{
+               background: rgb(23,24,56);
+               background: linear-gradient(90deg, rgba(23,24,56,1) 4%, rgba(73,73,88,0.7679446778711485) 22%, rgba(33,179,99,1) 64%, rgba(0,212,255,0.7147233893557423) 100%);
+               background-size: cover;
+               background-position:center;
+               background-repeat: no-repeat;
+               background-attachment:fixed;
+          }
      </style>
      <body>
           <div class="container d-flex justify-content-center mt-4 text-center">
@@ -47,16 +57,22 @@ if (isset($_GET['deleteid'])) {
                     </div>
                     <div class="card-body">
                          <p class="card-text">  
-                              <hr style="width: 23vw; border-top: 2px solid #4d004d">
-                              <hr style="width: 25vw; border-top: 3px dashed #ffffcc; margin-top: -13px;">
-                              <hr style="width: 23vw; border-top: 2px solid #4d004d; margin-top: -13px;">
+                              <div class="d-flex justify-content-center">
+                                   <hr style="margin-top:1%;width:70%;border-top:2px solid #4d004d;">
+                              </div>
+                              <div class="d-flex justify-content-center">
+                                   <hr style="margin-top:-1%;width:60%;border-top:3px dashed #ffffcc; ">
+                                   </div>
+                              <div class="d-flex justify-content-center">
+                                   <hr style="margin-top:-1%;width:70%;border-top:2px solid #4d004d; ;">
+                              </div>
                          </p>
 
                          <table class="table table-striped mt-4 border border-white">
                               <thead class="text-center">
                                    <tr class="text-white" style="font-size:25px">
                                         <th>Task</th>
-                                        <th>Action</th>
+                                        <th colspan="2">Action</th>
                                    </tr>
                               </thead>
                               <tbody class="text-white mt-3">
@@ -67,7 +83,10 @@ if (isset($_GET['deleteid'])) {
                                    <tr>
                                         <td><?php echo $value['trash_task']; ?></td>
                                         <td>
-                                             <a href="functions.php?trash_id=<?php echo $value['trash_id']; ?>" id="res" style="font-weight:bolder;"><i class='fas fa-trash-restore' style='font-size:23px;color:#90ee90;'></i> Restore</a>
+                                             <a href="functions.php?trash_id=<?php echo $value['trash_id']; ?>" id="res"><i class='fas fa-trash-restore' style='font-size:23px;color:#90ee90;'></i> Restore</a>
+                                        </td>                                        
+                                        <td>
+                                             <a  href="functions.php?del_id=<?php echo $value['trash_id']; ?>" id="res">Delete Permanently</a>
                                         </td>                                        
                                    </tr>
                                    <?php
@@ -78,6 +97,7 @@ if (isset($_GET['deleteid'])) {
                     </div>
                </div>
           </div>
+
 <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="crossorigin="anonymous"></script>
   </body>
   

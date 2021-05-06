@@ -94,6 +94,16 @@ class taskList{
           }
      }
 
+     public function deleteTrash($del_id){
+          $sql = "DELETE FROM trash WHERE trash_id='$del_id'";
+          $result = $this->conn->query($sql);
+          if ($result){
+               header('location:trash.php?msg=del');
+          }else{
+               echo "Error ".$sql."<br>".$this->conn->error;
+          }
+     }
+
     public function restoreRecord($trash_id){
           $sql = "INSERT INTO todo (task) SELECT trash_task from trash WHERE trash_id = $trash_id ";
           $result = $this->conn->query($sql);

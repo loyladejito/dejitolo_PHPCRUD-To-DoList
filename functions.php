@@ -22,7 +22,14 @@ if(isset($_GET['trash_id'])){
      $obj->insertTrashRecord($trash_id);
      $obj->restoreRecord($trash_id);
      $obj->deleteTrashRecord($trash_id);
+     $obj->deleteTrash($trash_id);
 }
+
+if (isset($_GET['del_id'])) {
+     $id = $_GET['del_id'];
+     $obj->deleteTrash($id);
+}
+
 ?>
 
 <!Doctype html>
@@ -114,10 +121,10 @@ if(isset($_GET['trash_id'])){
                                    <hr style="margin-top:1%;width:70%;border-top:2px solid #4d004d;">
                               </div>
                               <div class="d-flex justify-content-center">
-                                   <hr style="margin-top:-2%;width:60%;border-top:3px dashed #ffffcc; ">
+                                   <hr style="margin-top:-1%;width:60%;border-top:3px dashed #ffffcc; ">
                                    </div>
                               <div class="d-flex justify-content-center">
-                                   <hr style="margin-top:-2%;width:70%;border-top:2px solid #4d004d; ;">
+                                   <hr style="margin-top:-1%;width:70%;border-top:2px solid #4d004d; ;">
                               </div>
                          </p>
 
@@ -165,4 +172,15 @@ $('.checkbox').change(function(){
   }
 })
 </script>
+
+<style>
+body{
+     background: rgb(23,24,56);
+     background: linear-gradient(90deg, rgba(23,24,56,1) 4%, rgba(73,73,88,0.7679446778711485) 22%, rgba(33,179,99,1) 64%, rgba(0,212,255,0.7147233893557423) 100%);
+      background-size: cover;
+      background-position:center;
+      background-repeat: no-repeat;
+      background-attachment:fixed;
+}
+</style>
   </html>
